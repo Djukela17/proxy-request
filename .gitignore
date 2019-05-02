@@ -1,0 +1,5 @@
+.idea
+
+# ignore everything inside vendor dir except the vendor.js file
+vendor/*
+!vendor/vendor.json

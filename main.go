@@ -46,7 +46,7 @@ func handleRequest(
 ) func(w http.ResponseWriter, r *http.Request) {
 
 	return func(w http.ResponseWriter, r *http.Request) {
-		if allowIP(r.RemoteAddr, allowedIPs) {
+		if isWhitelisted(r.RemoteAddr, allowedIPs) {
 			log.Printf("%v is whitelisted, request allowed\n", r.RemoteAddr)
 
 			remoteURL := strings.TrimPrefix(r.URL.String(), "/")
@@ -87,7 +87,7 @@ func handleRequest(
 	}
 }
 
-func allowIP(ip string, allowedIPs []string) bool {
+func isWhitelisted(ip string, allowedIPs []string) bool {
 
 	// allow requests from localhost by default
 	if strings.HasPrefix(ip, "[::1]") || strings.HasPrefix(ip, "127.0.0.1") {

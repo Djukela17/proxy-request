@@ -78,4 +78,4 @@ The same goes for other request types (`POST`, `PUT`, `DELETE`)
 ### Config file
 
 * Does not support IP blacklisting, only whitelisting
-* The line must contain only IP of comment, no mixing
+* The line must contain only IP or comment, no mixing
